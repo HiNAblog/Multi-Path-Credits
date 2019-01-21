@@ -1,0 +1,693 @@
+
+%% bare_conf_compsoc.tex
+%% V1.4b
+%% 2015/08/26
+%% by Michael Shell
+%% See:
+%% http://www.michaelshell.org/
+%% for current contact information.
+%%
+%% This is a skeleton file demonstrating the use of IEEEtran.cls
+%% (requires IEEEtran.cls version 1.8b or later) with an IEEE Computer
+%% Society conference paper.
+%%
+%% Support sites:
+%% http://www.michaelshell.org/tex/ieeetran/
+%% http://www.ctan.org/pkg/ieeetran
+%% and
+%% http://www.ieee.org/
+
+%%*************************************************************************
+%% Legal Notice:
+%% This code is offered as-is without any warranty either expressed or
+%% implied; without even the implied warranty of MERCHANTABILITY or
+%% FITNESS FOR A PARTICULAR PURPOSE!
+%% User assumes all risk.
+%% In no event shall the IEEE or any contributor to this code be liable for
+%% any damages or losses, including, but not limited to, incidental,
+%% consequential, or any other damages, resulting from the use or misuse
+%% of any information contained here.
+%%
+%% All comments are the opinions of their respective authors and are not
+%% necessarily endorsed by the IEEE.
+%%
+%% This work is distributed under the LaTeX Project Public License (LPPL)
+%% ( http://www.latex-project.org/ ) version 1.3, and may be freely used,
+%% distributed and modified. A copy of the LPPL, version 1.3, is included
+%% in the base LaTeX documentation of all distributions of LaTeX released
+%% 2003/12/01 or later.
+%% Retain all contribution notices and credits.
+%% ** Modified files should be clearly indicated as such, including  **
+%% ** renaming them and changing author support contact information. **
+%%*************************************************************************
+
+
+% *** Authors should verify (and, if needed, correct) their LaTeX system  ***
+% *** with the testflow diagnostic prior to trusting their LaTeX platform ***
+% *** with production work. The IEEE's font choices and paper sizes can   ***
+% *** trigger bugs that do not appear when using other class files.       ***                          ***
+% The testflow support page is at:
+% http://www.michaelshell.org/tex/testflow/
+
+
+
+\documentclass[conference,compsoc]{IEEEtran}
+% Some/most Computer Society conferences require the compsoc mode option,
+% but others may want the standard conference format.
+%
+% If IEEEtran.cls has not been installed into the LaTeX system files,
+% manually specify the path to it like:
+% \documentclass[conference,compsoc]{../sty/IEEEtran}
+
+
+
+
+
+% Some very useful LaTeX packages include:
+% (uncomment the ones you want to load)
+
+
+% *** MISC UTILITY PACKAGES ***
+%
+%\usepackage{ifpdf}
+% Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
+% compilation based on whether the output is pdf or dvi.
+% usage:
+% \ifpdf
+%   % pdf code
+% \else
+%   % dvi code
+% \fi
+% The latest version of ifpdf.sty can be obtained from:
+% http://www.ctan.org/pkg/ifpdf
+% Also, note that IEEEtran.cls V1.7 and later provides a builtin
+% \ifCLASSINFOpdf conditional that works the same way.
+% When switching from latex to pdflatex and vice-versa, the compiler may
+% have to be run twice to clear warning/error messages.
+
+
+
+
+% *** CITATION PACKAGES ***
+%
+\ifCLASSOPTIONcompsoc
+  % IEEE Computer Society needs nocompress option
+  % requires cite.sty v4.0 or later (November 2003)
+  \usepackage[nocompress]{cite}
+\else
+  % normal IEEE
+  \usepackage{cite}
+\fi
+% cite.sty was written by Donald Arseneau
+% V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
+% \cite{} output to follow that of the IEEE. Loading the cite package will
+% result in citation numbers being automatically sorted and properly
+% "compressed/ranged". e.g., [1], [9], [2], [7], [5], [6] without using
+% cite.sty will become [1], [2], [5]--[7], [9] using cite.sty. cite.sty's
+% \cite will automatically add leading space, if needed. Use cite.sty's
+% noadjust option (cite.sty V3.8 and later) if you want to turn this off
+% such as if a citation ever needs to be enclosed in parenthesis.
+% cite.sty is already installed on most LaTeX systems. Be sure and use
+% version 5.0 (2009-03-20) and later if using hyperref.sty.
+% The latest version can be obtained at:
+% http://www.ctan.org/pkg/cite
+% The documentation is contained in the cite.sty file itself.
+%
+% Note that some packages require special options to format as the Computer
+% Society requires. In particular, Computer Society  papers do not use
+% compressed citation ranges as is done in typical IEEE papers
+% (e.g., [1]-[4]). Instead, they list every citation separately in order
+% (e.g., [1], [2], [3], [4]). To get the latter we need to load the cite
+% package with the nocompress option which is supported by cite.sty v4.0
+% and later.
+
+
+
+\usepackage{graphicx} %插入图片的宏包
+\usepackage{float} %设置图片浮动位置的宏包
+\usepackage{subfigure} %插入多图时用子图显示的宏包
+
+% *** GRAPHICS RELATED PACKAGES ***
+%
+\ifCLASSINFOpdf
+  %\usepackage{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  %\usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+% graphicx was written by David Carlisle and Sebastian Rahtz. It is
+% required if you want graphics, photos, etc. graphicx.sty is already
+% installed on most LaTeX systems. The latest version and documentation
+% can be obtained at:
+% http://www.ctan.org/pkg/graphicx
+% Another good source of documentation is "Using Imported Graphics in
+% LaTeX2e" by Keith Reckdahl which can be found at:
+% http://www.ctan.org/pkg/epslatex
+%
+% latex, and pdflatex in dvi mode, support graphics in encapsulated
+% postscript (.eps) format. pdflatex in pdf mode supports graphics
+% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
+% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
+% not a bitmapped formats (.jpeg, .png). The IEEE frowns on bitmapped formats
+% which can result in "jaggedy"/blurry rendering of lines and letters as
+% well as large increases in file sizes.
+%
+% You can find documentation about the pdfTeX application at:
+% http://www.tug.org/applications/pdftex
+
+
+
+
+
+% *** MATH PACKAGES ***
+%
+\usepackage{amsmath}
+% A popular package from the American Mathematical Society that provides
+% many useful and powerful commands for dealing with mathematics.
+%
+% Note that the amsmath package sets \interdisplaylinepenalty to 10000
+% thus preventing page breaks from occurring within multiline equations. Use:
+%\interdisplaylinepenalty=2500
+% after loading amsmath to restore such page breaks as IEEEtran.cls normally
+% does. amsmath.sty is already installed on most LaTeX systems. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/pkg/amsmath
+
+
+
+
+
+% *** SPECIALIZED LIST PACKAGES ***
+%
+\usepackage{algorithm}
+\usepackage{algorithmic}
+% algorithmic.sty was written by Peter Williams and Rogerio Brito.
+% This package provides an algorithmic environment fo describing algorithms.
+% You can use the algorithmic environment in-text or within a figure
+% environment to provide for a floating algorithm. Do NOT use the algorithm
+% floating environment provided by algorithm.sty (by the same authors) or
+% algorithm2e.sty (by Christophe Fiorio) as the IEEE does not use dedicated
+% algorithm float types and packages that provide these will not provide
+% correct IEEE style captions. The latest version and documentation of
+% algorithmic.sty can be obtained at:
+% http://www.ctan.org/pkg/algorithms
+% Also of interest may be the (relatively newer and more customizable)
+% algorithmicx.sty package by Szasz Janos:
+% http://www.ctan.org/pkg/algorithmicx
+
+
+
+
+% *** ALIGNMENT PACKAGES ***
+%
+%\usepackage{array}
+% Frank Mittelbach's and David Carlisle's array.sty patches and improves
+% the standard LaTeX2e array and tabular environments to provide better
+% appearance and additional user controls. As the default LaTeX2e table
+% generation code is lacking to the point of almost being broken with
+% respect to the quality of the end results, all users are strongly
+% advised to use an enhanced (at the very least that provided by array.sty)
+% set of table tools. array.sty is already installed on most systems. The
+% latest version and documentation can be obtained at:
+% http://www.ctan.org/pkg/array
+
+
+% IEEEtran contains the IEEEeqnarray family of commands that can be used to
+% generate multiline equations as well as matrices, tables, etc., of high
+% quality.
+
+
+
+
+% *** SUBFIGURE PACKAGES ***
+%\ifCLASSOPTIONcompsoc
+%  \usepackage[caption=false,font=footnotesize,labelfont=sf,textfont=sf]{subfig}
+%\else
+%  \usepackage[caption=false,font=footnotesize]{subfig}
+%\fi
+% subfig.sty, written by Steven Douglas Cochran, is the modern replacement
+% for subfigure.sty, the latter of which is no longer maintained and is
+% incompatible with some LaTeX packages including fixltx2e. However,
+% subfig.sty requires and automatically loads Axel Sommerfeldt's caption.sty
+% which will override IEEEtran.cls' handling of captions and this will result
+% in non-IEEE style figure/table captions. To prevent this problem, be sure
+% and invoke subfig.sty's "caption=false" package option (available since
+% subfig.sty version 1.3, 2005/06/28) as this is will preserve IEEEtran.cls
+% handling of captions.
+% Note that the Computer Society format requires a sans serif font rather
+% than the serif font used in traditional IEEE formatting and thus the need
+% to invoke different subfig.sty package options depending on whether
+% compsoc mode has been enabled.
+%
+% The latest version and documentation of subfig.sty can be obtained at:
+% http://www.ctan.org/pkg/subfig
+
+
+
+
+% *** FLOAT PACKAGES ***
+%
+%\usepackage{fixltx2e}
+% fixltx2e, the successor to the earlier fix2col.sty, was written by
+% Frank Mittelbach and David Carlisle. This package corrects a few problems
+% in the LaTeX2e kernel, the most notable of which is that in current
+% LaTeX2e releases, the ordering of single and double column floats is not
+% guaranteed to be preserved. Thus, an unpatched LaTeX2e can allow a
+% single column figure to be placed prior to an earlier double column
+% figure.
+% Be aware that LaTeX2e kernels dated 2015 and later have fixltx2e.sty's
+% corrections already built into the system in which case a warning will
+% be issued if an attempt is made to load fixltx2e.sty as it is no longer
+% needed.
+% The latest version and documentation can be found at:
+% http://www.ctan.org/pkg/fixltx2e
+
+
+%\usepackage{stfloats}
+% stfloats.sty was written by Sigitas Tolusis. This package gives LaTeX2e
+% the ability to do double column floats at the bottom of the page as well
+% as the top. (e.g., "\begin{figure*}[!b]" is not normally possible in
+% LaTeX2e). It also provides a command:
+%\fnbelowfloat
+% to enable the placement of footnotes below bottom floats (the standard
+% LaTeX2e kernel puts them above bottom floats). This is an invasive package
+% which rewrites many portions of the LaTeX2e float routines. It may not work
+% with other packages that modify the LaTeX2e float routines. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/pkg/stfloats
+% Do not use the stfloats baselinefloat ability as the IEEE does not allow
+% \baselineskip to stretch. Authors submitting work to the IEEE should note
+% that the IEEE rarely uses double column equations and that authors should try
+% to avoid such use. Do not be tempted to use the cuted.sty or midfloat.sty
+% packages (also by Sigitas Tolusis) as the IEEE does not format its papers in
+% such ways.
+% Do not attempt to use stfloats with fixltx2e as they are incompatible.
+% Instead, use Morten Hogholm'a dblfloatfix which combines the features
+% of both fixltx2e and stfloats:
+%
+% \usepackage{dblfloatfix}
+% The latest version can be found at:
+% http://www.ctan.org/pkg/dblfloatfix
+
+
+
+
+% *** PDF, URL AND HYPERLINK PACKAGES ***
+%
+%\usepackage{url}
+% url.sty was written by Donald Arseneau. It provides better support for
+% handling and breaking URLs. url.sty is already installed on most LaTeX
+% systems. The latest version and documentation can be obtained at:
+% http://www.ctan.org/pkg/url
+% Basically, \url{my_url_here}.
+
+
+
+
+% *** Do not adjust lengths that control margins, column widths, etc. ***
+% *** Do not use packages that alter fonts (such as pslatex).         ***
+% There should be no need to do such things with IEEEtran.cls V1.6 and later.
+% (Unless specifically asked to do so by the journal or conference you plan
+% to submit to, of course. )
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\begin{document}
+%
+% paper title
+% Titles are generally capitalized except for words such as a, an, and, as,
+% at, but, by, for, in, nor, of, on, or, the, to and up, which are usually
+% not capitalized unless they are the first or last word of the title.
+% Linebreaks \\ can be used within to get better formatting as desired.
+% Do not put math or special symbols in the title.
+\title{MPC:Credit-Scheduled Delay-Bounded Multi-Path \\Congestion Control for Data Center Networks }
+
+
+% author names and affiliations
+% use a multiple column layout for up to three different
+% affiliations
+\author{\IEEEauthorblockN{Zejia Zhou}
+\IEEEauthorblockA{National University of Defense\\and Technology\\
+Changsha, China\\
+Email: zhouzejia@nudt.edu.cn}
+\and
+\IEEEauthorblockN{Shan Huang}
+\IEEEauthorblockA{National University of Defense\\and Technology\\
+Changsha, China\\
+Email: }
+\and
+\IEEEauthorblockN{Dezun Dong}
+\IEEEauthorblockA{National University of Defense\\and Technology\\
+Changsha, China\\
+Email: dong@nudt.edu.cn}}
+
+% conference papers do not typically use \thanks and this command
+% is locked out in conference mode. If really needed, such as for
+% the acknowledgment of grants, issue a \IEEEoverridecommandlockouts
+% after \documentclass
+
+% for over three affiliations, or if they all won't fit within the width
+% of the page (and note that there is less available width in this regard for
+% compsoc conferences compared to traditional conferences), use this
+% alternative format:
+%
+%\author{\IEEEauthorblockN{Michael Shell\IEEEauthorrefmark{1},
+%Homer Simpson\IEEEauthorrefmark{2},
+%James Kirk\IEEEauthorrefmark{3},
+%Montgomery Scott\IEEEauthorrefmark{3} and
+%Eldon Tyrell\IEEEauthorrefmark{4}}
+%\IEEEauthorblockA{\IEEEauthorrefmark{1}School of Electrical and Computer Engineering\\
+%Georgia Institute of Technology,
+%Atlanta, Georgia 30332--0250\\ Email: see http://www.michaelshell.org/contact.html}
+%\IEEEauthorblockA{\IEEEauthorrefmark{2}Twentieth Century Fox, Springfield, USA\\
+%Email: homer@thesimpsons.com}
+%\IEEEauthorblockA{\IEEEauthorrefmark{3}Starfleet Academy, San Francisco, California 96678-2391\\
+%Telephone: (800) 555--1212, Fax: (888) 555--1212}
+%\IEEEauthorblockA{\IEEEauthorrefmark{4}Tyrell Inc., 123 Replicant Street, Los Angeles, California 90210--4321}}
+
+
+
+
+% use for special paper notices
+%\IEEEspecialpapernotice{(Invited Paper)}
+
+
+
+
+% make the title area
+\maketitle
+
+% As a general rule, do not put math, special symbols or citations
+% in the abstract
+\begin{abstract}
+Most datacenter networks today deploy topologies, such as Clos and Fat Tree, with a large number of equivalent paths. However, some protocols are proposed without the consideration of utilizing the plentiful parallel paths, which results in low utilization of network but high utilization for a single path even using ECMP.
+
+We propose MPC, a credit-based multipath congestion control scheme, as it can effectively and seamlessly use available bandwidth, giving fairness on many topologies with equal paths. MPC achieves zero data loss and high network utilization. Our simulation shows that MPC is greatly improving the performance of network utilization. Compared to ExpressPass, MPC is also good at maintaining the advancements about bounded queue length and fast convergence.
+\end{abstract}
+
+% no keywords
+
+
+
+
+% For peer review papers, you can put extra information on the cover
+% page as needed:
+% \ifCLASSOPTIONpeerreview
+% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+% \fi
+%
+% For peerreview papers, this IEEEtran command inserts a page break and
+% creates the second title. It will be ignored for other modes.
+\IEEEpeerreviewmaketitle
+
+
+
+\section{Introduction}
+% no \IEEEPARstart
+% You must have at least 2 lines in the paragraph with the drop letter
+% (should never be an issue)
+The infrastructure of Data Center Network (DCN) is rapidly developing, including the link capacity, performance of the Network Interface Card (NIC) and the functionalities of the switch etc[https://people.usuc]. However, the network scale and traffic is also growing, and this inevitably leads to network congestion. Severe congestion can result in a sharp drop in network performance, so an efficient congestion control scheme is necessary.
+
+Many congestion control strategies have been proposed to manage network congestion, they can be classified into reactive and proactive [survey]. The reactive schemes [QCN, DCTCP, DCQCN, TIMELY] are designed to control the congestion after it has occurred. Reactive schemes often need at least one RTT for reacting to congestion, and many RTTs for converging to fairness. With the fast increasing of link capacity, more and more flow transmissions will be completed within few RTTs. The reactive congestion control schemes are hard to meet the requirements of the high-speed DCNs. To keep pace with the accelerating networks, proactive congestion control schemes [SRP, CRP, Fastpass, ExpressPass, Homa] are being increasingly hot.
+
+Proactive congestion control schemes, such as ExpressPass, can avoid congestion and achieve near-zero queueing, very fast convergence etc. However, current proactive schemes are still single path transports, they are liable to path failure and cannot fully utilize the high bandwidth provided by the multi-path topologies of modern DCNs [Clos, Leaf-Spine]. Therefore, to make full use of the excellent network resources, we propose a multiple path congestion control protocol that is consistent with the high bandwidth and low latency of data center networks.
+
+In this paper we present an improved datacenter protocol architecture based on ExpressPass, Multipath Credit (MPC), that is a credit-scheduled multipath congestion control algorithm. Receivers send credit packets based on 8-bits path ID generated randomly to achieve per packet multipath load balancing. Switches then rate-limit the credit packets on each link and determine the available bandwidth for data packets in the reverse direction. This proactive algorithm controls congestion before sending data packets by dropping credit packets at switches. Senders learn the amount of traffic that is safe to send carried by credit packets instead of reacting to the congestion signal after sending data. Incast can be effectively solved because the data packets of the reverse path are scheduled by limiting the rate of the credit packets.
+
+To achieve maximum flow at endpoints and bottleneck link, ExpressPass presents credit feedback control to adjust credit sending rate dynamically, which achieves high utilization, fairness, and fast convergence. However, when we extent the feedback control to multipath scenario, our observation shows that out-of-order credit packets arrives will cause fallacious rate control. To preserve the feedback control's properties, MPC uses ECN mechanism cleverly to feed back network congestion. Our evaluation shows that MPC converges the same order of magnitude as ExpressPass, just a few RTTs, when a new flow starts for both 40Gbps and 100Gbps. In our evaluations, MPC had no data packet loss and data buffer in switches is kept close to zero like ExpressPass, whereas DCTCP queue length is more than 150 packets even in stable condition. In addition, our evaluation shows that MPC flow completion time(FCT) is reduced 10\% than ExpressPass.
+
+In this paper, we show that credit-based congestion control provides excellent performance in the datacenter. Our contributions include:
+\begin{enumerate}
+  \item We observed that ExpressPass can not effectively use the idle equivalent path for data transmission when the single link is congested, which reduces network utilization.
+  \item We present Multi-path Credit (MPC): a credit-based congestion control scheme. MPC uses multipath rate control and rate-limit in switches. MPC use path ID to ensure path symmetry and load balancing. We use ECN to reflect congestion and control the credit rate.
+  \item We simulate MPC using Leaf-Spine topology with 4 spines and 24 leafs. Our simulation results show that MPC can improve network utilization by 20%.
+\end{enumerate}
+
+The rest of this paper is organized as follows. Section 2 introduces some observations that motivates this paper. Section 3 describes the design of our congestion control in detail. Section 4 shows some preliminary simulation results. Section 5 discusses some related work.
+%\hfill mds
+
+%\hfill August 26, 2015
+
+%\subsection{Subsection Heading Here}
+%Subsection text here.
+
+
+%\subsubsection{Subsubsection Heading Here}
+%Subsubsection text here.
+
+
+% An example of a floating figure using the graphicx package.
+% Note that \label must occur AFTER (or within) \caption.
+% For figures, \caption should occur after the \includegraphics.
+% Note that IEEEtran v1.7 and later has special internal code that
+% is designed to preserve the operation of \label within \caption
+% even when the captionsoff option is in effect. However, because
+% of issues like this, it may be the safest practice to put all your
+% \label just after \caption rather than within \caption{}.
+%
+% Reminder: the "draftcls" or "draftclsnofoot", not "draft", class
+% option should be used if it is desired that the figures are to be
+% displayed while in draft mode.
+%
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=2.5in]{myfigure}
+% where an .eps filename suffix will be assumed under latex,
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+%\caption{Simulation results for the network.}
+%\label{fig_sim}
+%\end{figure}
+
+% Note that the IEEE typically puts floats only at the top, even when this
+% results in a large percentage of a column being occupied by floats.
+
+
+% An example of a double column floating figure using two subfigures.
+% (The subfig.sty package must be loaded for this to work.)
+% The subfigure \label commands are set within each subfloat command,
+% and the \label for the overall figure must come after \caption.
+% \hfil is used as a separator to get equal spacing.
+% Watch out that the combined width of all the subfigures on a
+% line do not exceed the text width or a line break will occur.
+%
+%\begin{figure*}[!t]
+%\centering
+%\subfloat[Case I]{\includegraphics[width=2.5in]{box}%
+%\label{fig_first_case}}
+%\hfil
+%\subfloat[Case II]{\includegraphics[width=2.5in]{box}%
+%\label{fig_second_case}}
+%\caption{Simulation results for the network.}
+%\label{fig_sim}
+%\end{figure*}
+%
+% Note that often IEEE papers with subfigures do not employ subfigure
+% captions (using the optional argument to \subfloat[]), but instead will
+% reference/describe all of them (a), (b), etc., within the main caption.
+% Be aware that for subfig.sty to generate the (a), (b), etc., subfigure
+% labels, the optional argument to \subfloat must be present. If a
+% subcaption is not desired, just leave its contents blank,
+% e.g., \subfloat[].
+
+
+% An example of a floating table. Note that, for IEEE style tables, the
+% \caption command should come BEFORE the table and, given that table
+% captions serve much like titles, are usually capitalized except for words
+% such as a, an, and, as, at, but, by, for, in, nor, of, on, or, the, to
+% and up, which are usually not capitalized unless they are the first or
+% last word of the caption. Table text will default to \footnotesize as
+% the IEEE normally uses this smaller font for tables.
+% The \label must come after \caption as always.
+%
+%\begin{table}[!t]
+%% increase table row spacing, adjust to taste
+%\renewcommand{\arraystretch}{1.3}
+% if using array.sty, it might be a good idea to tweak the value of
+% \extrarowheight as needed to properly center the text within the cells
+%\caption{An Example of a Table}
+%\label{table_example}
+%\centering
+%% Some packages, such as MDW tools, offer better commands for making tables
+%% than the plain LaTeX2e tabular which is used here.
+%\begin{tabular}{|c||c|}
+%\hline
+%One & Two\\
+%\hline
+%Three & Four\\
+%\hline
+%\end{tabular}
+%\end{table}
+
+
+% Note that the IEEE does not put floats in the very first column
+% - or typically anywhere on the first page for that matter. Also,
+% in-text middle ("here") positioning is typically not used, but it
+% is allowed and encouraged for Computer Society conferences (but
+% not Computer Society journals). Most IEEE journals/conferences use
+% top floats exclusively.
+% Note that, LaTeX2e, unlike IEEE journals/conferences, places
+% footnotes above bottom floats. This can be corrected via the
+% \fnbelowfloat command of the stfloats package.
+
+
+\section{Motivation}
+Data center network inner traffic mainly uses request/response protocols. In the case of a bursty application, latency can cause serious problems, especially for workloads like RPC. In large data center networks, faced with a large number of bursts, some congestion control algorithms exhibit limitations under such load. The link bandwidth inside the data center network is increasing, from 10G to 100G or more, but the buffer of the switch does not go up at the same rate.
+
+The first drawback is the loss of packets, especially in the case of the shallow buffer. The retransmission of data packets due to a large number of packet drops will seriously increase the FCT. The second is that the queue length cannot be maintained stably if the network suffers an emergency. Even if the link is fair, the queue length will increase indefinitely when the burst flow arrives. A burst that would fill a 4 MByte buffer would completely drain in 3.2 mS at 10 Gb/s. [packet buffers] Third, most data center networks today deploy topologies with a large number of equivalent paths, such as Clos. When a flow is congested, there are still idle links that can transmit data, but they are not being used. Using load balancing algotithm becomes prevalent to overcome low network utilization. Equal Cost Multi-Path (ECMP) is currently the main method in data center network[Rdma over commodity, Inside the social, Jupiter rising].
+
+As an excellent end-to-end flow-based proactive congestion control protocol, ExpressPass has the advantages of fast convergence, queue length close to zero, and zero packet loss. ExpressPass schedules the arrival of data packets at packet granularity by an end-to-end credit-based scheme, in addition to controlling their arrival rate at the bottleneck link. Firstly, ExpresssPass requires a signal called CREDIT\_REQUEST at the receiver to start the credit flow.  The request is piggybacked by SYN or SYN+ACK packet. A credit packet is sent at a minimum size, 84 B Ethernet frame. Once received a credit packet, the sender transmits up a data packet at a maximum size Ethernet frame by the reverse path of the credit packet. In order to utilize the bandwidth fully in Ethernet, the credit packet is rate-limited as 5\%. When the credit packets are congested in bottleneck link, the switch limits credit packets to match the capacity of the reverse link capacity by dropping credit packets that out of range of the link capacity at output ports. ExpressPass uses ECMP to ensure path symmetry and load balancing. If there is no data to be sent for a short time, the sender sends a signal called CREDIT\_STOP to the receiver to stop credit transmitting.
+
+ExpressPass is near the full utilization in a single path. In order to ensure that the data packet will not be congested during transmission, the maximum transmission rate of the credit packet is 5\%.$^{1 the rate analysis is in section 3.1}$ Now we analyze the network utilization of ExpressPass in a multi-path network. Imagine a simple network topology with two equal-cost paths, called Link1 and Link2. Both sender and receiver deploy ExpressPass and only one data packet can be transmitted on one link. Now there is one flow to start sending data through Link1, and Link1 is fully utilized. At this point, network utilization is 50\%. When a certain time, Link 1 is congested, and Link2 is idle. According to the ExpressPass protocol and ECMP, the switch S1 in Link1 begins to drop credit packets. the loss of the packet is started at the switch S1, and the probability of packet loss is 50\%. Thus the network utilization is reduced to 25\%.
+
+Figure 1 shows the utilization of each link of ExpressPass with ECMP. Our simulation is based on 16 servers located under two ToR switches as shown in Figure 2. After 11s, there are three equal-cost links in the network, but the data is still transmitted on one link. It can be seen that even if the ECMP algorithm is adopted, ExpressPass still falls short to utilize the overall network bandwidth. As a effective load balancing method, ECMP has been pointed out that it is not able to balance traffic well when the number of equal links are huge due to hash collisions. What's more, ECMP is flow-grained load balancing. A congeted flow is clumsy and do not know change to other idle path because the path has been choosed at the start of the flow. [Rdma over commodity] has pointed out that this reduced throughput by 40\%.
+
+The results suggests that even though ExpressPass is excellent in single path, its utilization in multi-path network is low. The network utilization used ExpressPass does not reach a high level in the presence of an equivalent idle link in the network. This can be worse when single-congested. Ideally, ExpressPass should achieve near 100\% network utilization even in multipath topologies, while meeting these advantages. If the flow is congested, the remaining paths should transmit credit packets.
+
+\section{Design}
+ExpressPass is an end-to-end credit reservation protocol on a per-flow basis. If the dropped credit packets due to network congestion are reassigned to other equivalent links, this may result in slower convergence and may not distribute the flow evenly across the network. If it is a symmetric network such as Clos, there are many equivalent paths from senders to a destination.
+
+MPC is a multi-path packet-granularity credit-based proactive congestion control protocol. Using symmetric routing can ensure data packets follow the reserve path of credit flows. For each credit packet, the receiver randomly selects a path to send it out, which is calculated by path ID, and the rate is still 5\% link capaticy as ExpressPass. Figure 4 shows how the mechanism works, where all links are equal. There is a time window in which only one packets can be transmitted on the link. Now, receiver generates four credit packets whose path ID are 3, 45, 28, 68 at the maximum credit rate.
+
+\textbf{Design challenges:\#1 Per-packet multipath load balancing.} As mentioned in prior stuies, ECMP hashing of flows to paths can cause unintended flow collisions. Multipath protocols such as MPTCP can estabilish enough subflows to find unused paths[MPTCP], but they can do little to help with the latency of very short transfers. A splendid solution is to stripe across multiple paths on a per-packet basis[NDP].
+
+\textbf{\#2 Out-of-Order(OOO) packets.} Multipath will cause packets to arrive out-of-order at the host, no matter credit or data. Since the packets may arrive in a random order, if the degree of out of order is large, it will cause serious retransmission latency or need rich reorder buffer size.
+
+\subsection{Multi-path Credit Schedule}
+\textbf{Credit rate-limiting (switch and end-host):} The size of a credit packet is a minimum Ethernet frame (e.g 84B), while a data packet is transmitted by a maximum Ethernet frame (e.g 1538B). The rate of credit packet is limited to $84/(84+1538)\approx 5\%$ of the link capacity and the data packet uses the remaining 95\%. When a credit packet is accumulated in the switch's credit queue and reaches the maximum queue length, credit packets that exceed the maximum queue length are dropped. This is like ExpressPass. What different from ExpressPass is the 5\% link capacity is the total rate of the credit packet transmission over multiple links. Since data packets are not always transmitted at 1 MTU full size, we set up a small buffer queue to store unused credit packets.
+
+\textbf{Rate assigning (end-host):} In order to get the packet loss rate of the switch, ExpressPass adds a sequence number to each credit card. The data packet corresponding to each credit package also contains the same sequence number. The congestion state in the network can be reflected by \emph{credit\_loss}, which is counted sequence numbers each RTT. The receiver records the last credit sequence number sending at the end of one RTT and the first credit sequence number sending at the first of the RTT, and calculate the difference between the two. Within each RTT, each time a packet is received, the counter is incremented by one on the first sequence number of the before RTT. After an RTT, the remaining values that the difference we calculate before subtracts the counter is the dropped credit packet in acquiescence. For instance, the last credit sequence number sending at the end of one RTT and the first credit sequence number sending at the first of the RTT are 40 and 12. The counter number is 21. So the \emph{credit\_loss} equal to 21/(40-12)=0.75. If \emph{credit\_loss} is greater than the target packet loss rate \emph{target\_loss}, the receiver directly adjusts the transmission rate corresponding to all current paths according to the credit loss rate by modifying the multi-path information table mentioned in following part. The total rate is always v$_{max}$.
+
+\textbf{Multi-path control (end-host):} In the multi-path controlling module of end-host, a multi-path information table is maintained for each flow, in which there is the mapping of path ID and sending rate. There is 8-bits path ID at the header of packets, which supports 256 path ID in total. The path ID of data packet is the same as the corresponding credit packet.  Each time multi-path control is performed, a new addition to the multi-path information table contains path ID and sending rate. A path ID is generated randomly between 0 and 255, and the sending rate is set as the credit rate-limiting module. After the new path information is added, the multipath information table finds and deletes all paths whose credit rate is less than the threshold v$_{min}$.
+
+\textbf{Ensuring path symmetry (switch and end-host): }ExpressPass uses symmetric hashing with deterministic Equal Cost MultiPath (ECMP) to ensure path symmetry. ECMP hashes the source address and destination address of a packet, and the resulting hash value as a many-to-one mapping of indexing and routing. Since the destination address of data packet corresponds the source address of credit address, path symmetry can be guaranteed after ECMP calculating. But in multi-path topology, credit for the same flow takes different paths, so hashing the address is undesirable. Based on this, Once a data packet arrived, the path ID of data packet and the number of ECMP equivalent paths are used for module calculation, and the corresponding routing information is found in the ECMP routing table according to indexing. Such as the topology in Figure 2, the path ID of a credit packet is 222, and the number of ECMP equivalent paths is 4. It is transmitted to L2 because 222 mod 4 is 2. The path ID and the reverse routing information of this credit packet  are stored at path consistency routing table in L2. When the corresponding data packet arrives L2, the reverse routing information can be found by indexing the path ID and forward data packet according to it.
+
+\textbf{Starting and stopping credit flow (end-host):} This module is the same as ExpressPass, which requires a signaling mechanism to start the credit flow at the receiver. The credit request CREDIT\_REQ is piggybacked by SYN to the receiver. At the end of the flow, if there is no data to send for a small timeout period, the sender transmits a CREDIT\_STOP to the receiver, and the receiver stops sending credits after receiving it.
+
+\textbf{Multipath feedback control (end-host):} In different topologies mentioned in ExpressPass, maximum flow cannot be insured in end or link. Thus ExpressPass introduces credit feedback control to adjust rate of credit. For MPC, when the data arrives, we query the flow information table and record the sequence number. Once one RTT passed, the receiver computes the credit\_loss according to the gap of sequence number. Then we adjust the total credit rate using Algorithm 1. We consider all equivalent links as a whole. As described in Algorithm 1, if \emph{credit\_loss} is less than or equal to the target loss rate (\emph{target\_loss}), the network is considered under-utilized and enter the increasing phase. Otherwise, decreasing phase is employed when \emph{credit\_loss} is more than \emph{target\_loss}.
+% conference papers do not normally have an appendix
+\begin{algorithm}
+\caption{Multipath feedback control}
+\label{alg:A}
+\begin{algorithmic}
+%\LinesNumbered
+\STATE ${\omega \gets \omega_{init}}$
+\STATE $sum\_rate \gets initial\_rate$
+\REPEAT \STATE{per updata period (RTT by default)}
+\STATE $old\_sum\_rate \gets sum\_rate$
+\IF {${credit\_loss \le target\_loss}$}
+\STATE $(increasing\ phase)$
+\IF {precious phase was increasing phase}
+\STATE ${\omega = (\omega + \omega_{max})/2}\ \ \ \ (\omega_{max}=0.5)$
+\STATE $sum\_rate=(1-\omega) \cdot sum\_rate + \omega \cdot max\_rate \cdot (1+targer\_loss)$
+\ENDIF
+\ELSE
+\STATE $(decreasing\ phase)$
+\STATE $sum\_rate=sum\_rate \cdot (1-credit\_loss) \cdot (1+targer\_loss)$
+\STATE ${\omega = max(\omega /2 , \omega_{min})}\ \ \ \ (0< \omega_{min} \le \omega_{max})$
+\ENDIF
+\UNTIL{End of Flow}
+\end{algorithmic}
+\end{algorithm}
+
+\textbf{Reordeing the out-of-order packets (end-host):} For multipath congestion control procotol, it is normal for data packet to be reorded at the host. We reorder data packets by sequence number before entering transport layer, which can decrease latency caused by retransmission. As the links in symmetric network are equal and the length of the data queue is limited near zero(shown in Section 4), the degree of out of order is controllable.
+
+\subsection{ECN marking mechanism}
+Since using sequence number to reflect network status has less change for switches, this mechanism has weak point that we have to take into consideration, which is it would cause out-of-order of credit packets and data packets. If there is no data to send for a little timeout period, but has not yet reached the time to send CREDIT\_STOP, the credit packets accumulates in the sender's credit buffer. Imagine the following scenario as shown in Figure 4: At the end of t RTT, the credit number with sequence number 24 enters the credit buffer of the sender. At this time, the data buffer of the sender has no data to be sent. Credit began to accumulate. Until the end of the t+1 RTT, the credit buffer has accumulated packets of sequence numbers 24, 18, 19, 21-23,27-28. (A smaller number of packets arrives later is possible in the multiple path condition.) If starting from the t+3 RTT, the sender has new data to start transmission. The first is the credit with sequence number 24. Then it is 18 and 19. But when the data packets of these sequence numbers are transmitted to the receiver, the receiver will be confused. Because rate regulation is an RTT for the update period, these sequence numbers are considered to have been dropped in the network during the last round of rate regulation. What's more, the rate control has fallen behind 1.5 RTT.  The situation will be worse if the data from upper-layer generate lowly. Even if we reorder the sequece numbers in the buffer, the problem of lag cannot be solved.
+
+Another solution is to track the congetion state of each path, so that the receiver can perform congestion-aware load distrubution. However, these state grow linearly for large transfers. This may cause memory overhead to record these information[MP-RDMA], as it records loss from other packets' sequence numbers. What's more, this mechanism [MPTCP] can do little to help with the latency of very short transfers.
+
+In addition to sequence number, ECN can also reflect network congestion. We propose ECN marking machanism. Each time the switch receives ten credit packets,  the packet loss rate loss\_rate is calculated based on the number of discarded credit packets in ten. The probability that the switch marks the ECN for the credit packets is P$_{ECN}$=$\sigma$ $\cdot$ loss\_rate. $\sigma$ is the control factor that the default value is 1. Data packets corresponding to credit packets with ECN tags also have ECN-marking. Each time the receiving end passes an RTT, the ratio of the data packet with the ECN-marking received in the RTT to the total data packet is calculated, and the average packet loss rate P of the flow in the network in the RTT is obtained. Then the receiver performs multi-path controlling. The receiver sends the discarded credit packets through other links according to the packet loss rate. Receiver calculate the ECN-marking rate PECN each RTT, which gets the mean credit loss rate $\eta$ in the RTT indirectly. If $\eta$ is greater than the target packet loss rate target\_loss, the receiver directly adjusts the transmission rate corresponding to all current paths according to the credit loss rate by modifying the multi-path information table mentioned in following part. The total rate is always vmax. Using sequence number to detect congestion does not require the switches to support ECN marking. What's more, experiments have shown that ECN marking method converges faster and has a more uniform throughput compared to calculating the sequence number. The analysis of this is shown in Section 3.3.
+
+\subsection{Analysis}
+With the ECN tag, the sender does not need to store credit packets that are not assigned data packets. This avoids using outdated credit packets. When no data is sent, the sender directly drops the unused credit packets. Until the new packet arrives, the sender directly transfers the newly arrived credit packet and passes the ECN information on the credit packet to the data packet. The use of ECN markers can effectively shorten the "lag time" of rate adjustment. Let us denote tdelay as the delay between sending a credit packet and receiving a corresponding data packet at the receiver. For each tdelay used sequence number, it consists of three factors: (1) the time of link transmission, tpath; (2) the delay of queuing of credit packet; (3) the delay of waiting in the credit buffer to match data packet; (4) the delay of queuing of data packet. Show as the following formula.
+\begin{equation}
+t_{delay} = t_{path} + t_{cqueue} + t_{buffer} + t_{cdata}
+\end{equation}
+For ECN marking mechanism, the tdelay is affected by three factor that is without the waiting time in buffer compared to sequence number mechanism.
+
+Second, the ECN mechanism does not consider Out-of-Order of credit packets. The status of each link is different, but the information reflected by ECN marking probability does not change with the order of arrival. The receiver does not need to know the order in which congestion occurs, it only needs to know the extent of network congestion and react to it.
+
+\section{Implementation}
+Our evaluations are based on OMNET++ implementations of DCTCP, ExpressPass, and MPC. In the following, we will present our simulation results. Explain that the MPC-seq in the following figures refer to the MPC protocol that uses the sequence number to reflect congestion condition, and the MPC-ECN represents the method that uses the ECN marking to feed back the network congestion condition. If not specified, MPC refers to MPC-ECN.
+
+We measure the abilities of these protocol to utilize Fat tree datacenter network. We compare MPC-ECN with DCTCP, ExpressPass, and MPC-seq.
+\textbf{To be continue...}
+
+\section{Related Work}
+% use section* for acknowledgment
+\ifCLASSOPTIONcompsoc
+  % The Computer Society usually uses the plural form
+  \section*{Acknowledgments}
+\else
+  % regular IEEE prefers the singular form
+  \section*{Acknowledgment}
+\fi
+
+%\usepackage{algorithm}
+%\usepackage{algorithmic}
+%\begin{algorithm}[!h]
+%\caption{Algorithm 1}
+%\begin{algorithmic}[l]
+%\STATE $\omega \to \omega$_{init}$$
+
+
+
+%\UNTIL{End of Flow}
+The authors would like to thank...
+
+
+
+
+
+% trigger a \newpage just before the given reference
+% number - used to balance the columns on the last page
+% adjust value as needed - may need to be readjusted if
+% the document is modified later
+%\IEEEtriggeratref{8}
+% The "triggered" command can be changed if desired:
+%\IEEEtriggercmd{\enlargethispage{-5in}}
+
+% references section
+
+% can use a bibliography generated by BibTeX as a .bbl file
+% BibTeX documentation can be easily obtained at:
+% http://mirror.ctan.org/biblio/bibtex/contrib/doc/
+% The IEEEtran BibTeX style support page is at:
+% http://www.michaelshell.org/tex/ieeetran/bibtex/
+%\bibliographystyle{IEEEtran}
+% argument is your BibTeX string definitions and bibliography database(s)
+%\bibliography{IEEEabrv,../bib/paper}
+%
+% <OR> manually copy in the resultant .bbl file
+% set second argument of \begin to the number of references
+% (used to reserve space for the reference number labels box)
+\begin{thebibliography}{1}
+
+\bibitem{IEEEhowto:kopka}
+H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
+  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
+
+\end{thebibliography}
+
+
+
+
+% that's all folks
+\end{document}
+
+
